@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import SquareComponent from "./modules/SquareComponent";
 import './App.css'
 
-const clearState = ["", "", "", "", "", "", "", "", "", ""];
+const clearState = ["", "", "", "", "", "", "", "", ""];
 
 function App() {
     const [gameState, updateGameState] = useState(clearState)
@@ -21,8 +21,7 @@ function App() {
 
     const clearGame = () => {
         updateGameState(clearState)
-        setText(" ");
-        
+        setText(" ");    
     }
     useEffect(() => {
         const checkWinner = () => {
