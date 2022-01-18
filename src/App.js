@@ -7,6 +7,7 @@ const clearState = ["", "", "", "", "", "", "", "", "", ""];
 function App() {
     const [gameState, updateGameState] = useState(clearState)
     const [isXChance, updateIsXChance] = useState(false)
+    const [text,setText] = useState("")
 
     const onUserClicked = (index) => {
         let strings = Array.from(gameState);
@@ -21,37 +22,39 @@ function App() {
         updateGameState(clearState)
     }
     useEffect(() => {
+        const checkWinner = () => {
+            const lines = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6],
+            ];
+            console.log('Class: App, Function: checkWinner ==', gameState[0], gameState[1], gameState[2]);
+            for (let i = 0; i < lines.length; i++) {
+                const [a, b, c] = lines[i];
+                if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
+                    return gameState[a];
+                }
+            }
+            return null;
+        }
         let winner = checkWinner();
         if (winner) {
             clearGame();
-            alert(` ${winner} Won the Game !`)
+            setText(` ${winner} Won the Game`)
         }
     }, [gameState])
 
-    const checkWinner = () => {
-        const lines = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6],
-        ];
-        console.log('Class: App, Function: checkWinner ==', gameState[0], gameState[1], gameState[2]);
-        for (let i = 0; i < lines.length; i++) {
-            const [a, b, c] = lines[i];
-            if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
-                return gameState[a];
-            }
-        }
-        return null;
-    }
+    
 
     return (
         <div className="app-header">
             <p className="heading-text"> Tic Tac Toe </p>
+            <h2>{text}</h2>
             <div className="row jc-center">
                 <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(0)} state={gameState[0]}/>
                 <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(1)} state={gameState[1]}/>
@@ -68,7 +71,6 @@ function App() {
                 <SquareComponent onClick={() => onUserClicked(8)} state={gameState[8]}/>
             </div>
             <button className="clear-button" onClick={clearGame}>Clear Game</button>
-            <p className="fc-aqua fw-600">The Indian Dev</p>
         </div>
     );
 }
