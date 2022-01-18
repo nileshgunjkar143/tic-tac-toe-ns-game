@@ -1,85 +1,126 @@
 body {
-  font: 24px 'Century Gothic', Futura, sans-serif;
-  margin: 50px;
-  background-color: rgb(230, 231, 159);
-  display: flex;
-  justify-content: center;
-  
- 
-}
-ol,
-ul {
-  padding-left: 30px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.board-row:after {
-  clear: both;
-  content: '';
-  /* display: table; */
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-.status {
-  margin-bottom: 10px;
+.app-header {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    background-color: #131A28;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading-text {
+    color: white;
+    font-size: 42px;
+    font-weight: bolder;
+    text-align: center;
+    margin: 50px;
 }
 
 .square {
-  background: rgb(236, 225, 225);
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 54px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 100px;
-  height: 100px;
+    min-width: 70px;
+    min-height: 70px;
+    font-size: 64px;
+    text-align: center;
+    color: #1CDBF5;
+    font-weight: bolder;
+    padding: 30px;
 }
 
-.square--green {
-  background: green;
+.fc-aqua {
+    color: #1CDBF5;
 }
 
-.square:focus {
-  outline: none;
+.fc-white {
+    color: white;
 }
 
-.kbd-navigation .square:focus {
-  background: #ddd;
+.fw-600 {
+    font-weight: bolder;
 }
 
-.game {
-  display: flex;
-  flex-direction: row;
-  
+.row {
+    display: flex;
+    flex-direction: row;
 }
 
-.game-info {
-  margin-left: 20px;
+.column {
+    display: flex;
+    flex-direction: column;
 }
 
-.button {
-  background-color: #555555; /* Green */
-  border: none;
-  color: #fff;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  cursor: pointer;
+.jc-center {
+    justify-content: center;
 }
 
-.button--green {
-  background-color: #4caf50;
-  color: #000;
-  font-weight: bold;
+.b-bottom-right {
+    border-right: 15px solid #1CDBF5;
+    border-bottom: 15px solid #1CDBF5;
 }
 
-.button--new-game {
-  background-color: #bb3219;
-  color: #000;
-  font-weight: bold;
-  margin-left: 2px;
+.b-bottom {
+    border-bottom: 15px solid #1CDBF5;
+}
+
+.b-right {
+    border-right: 15px solid #1CDBF5;
+}
+
+.clear-button {
+    width: max-content;
+    margin: 40px auto 10px auto;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .heading-text {
+        color: white;
+        font-size: 30px;
+        font-weight: bolder;
+        text-align: center;
+        margin: 60px 10px;
+    }
+
+    .square {
+        min-width: 80px;
+        min-height: 80px;
+        font-size: 32px;
+        font-weight: bolder;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .b-bottom-right {
+        border-right: 10px solid #1CDBF5;
+        border-bottom: 10px solid #1CDBF5;
+    }
+
+    .b-bottom {
+        border-bottom: 10px solid #1CDBF5;
+    }
+
+    .b-right {
+        border-right: 10px solid #1CDBF5;
+    }
+
+    .clear-button {
+        width: max-content;
+        margin: 40px auto 10px auto;
+    }
 }
