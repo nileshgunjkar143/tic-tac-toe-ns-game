@@ -16,10 +16,13 @@ function App() {
         strings[index] = isXChance ? "X" : "0";
         updateIsXChance(!isXChance)
         updateGameState(strings)
+        // setText(" ");
     }
 
     const clearGame = () => {
         updateGameState(clearState)
+        setText(" ");
+        
     }
     useEffect(() => {
         const checkWinner = () => {
@@ -46,6 +49,7 @@ function App() {
         if (winner) {
             clearGame();
             setText(` ${winner} Won the Game`)
+
         }
     }, [gameState])
 
@@ -70,7 +74,7 @@ function App() {
                 <SquareComponent className="b-right" onClick={() => onUserClicked(7)} state={gameState[7]}/>
                 <SquareComponent onClick={() => onUserClicked(8)} state={gameState[8]}/>
             </div>
-            <button className="clear-button" onClick={clearGame}>Clear Game</button>
+            <button className="clear-button" onClick={clearGame}>Restart Game</button>
         </div>
     );
 }
