@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+
 .app-header {
     display: flex;
     min-height: 100vh;
@@ -28,13 +29,13 @@ code {
     font-size: 42px;
     font-weight: bolder;
     text-align: center;
-    margin: 10px;
+    margin-top: 10px ;
 }
 
 .square {
     min-width: 70px;
     min-height: 70px;
-    font-size: 64px;
+    font-size: 50px;
     text-align: center;
     color: #1CDBF5;
     /* font-weight: bolder; */

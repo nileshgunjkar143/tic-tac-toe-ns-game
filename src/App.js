@@ -48,30 +48,31 @@ function App() {
         if (winner) {
             clearGame();
             setText(` ${winner} Won the Game`)
-
+        }else if(!winner && !gameState.filter((value) => value === "").length){
+            setText('Match Drawn')
         }
     }, [gameState])
-
-    
 
     return (
         <div className="app-header">
             <p className="heading-text"> Tic Tac Toe </p>
             <h2>{text}</h2>
-            <div className="row jc-center">
-                <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(0)} state={gameState[0]}/>
-                <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(1)} state={gameState[1]}/>
-                <SquareComponent className="b-bottom" onClick={() => onUserClicked(2)} state={gameState[2]}/>
-            </div>
-            <div className="row jc-center">
-                <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(3)} state={gameState[3]}/>
-                <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(4)} state={gameState[4]}/>
-                <SquareComponent className="b-bottom" onClick={() => onUserClicked(5)} state={gameState[5]}/>
-            </div>
-            <div className="row jc-center">
-                <SquareComponent className="b-right" onClick={() => onUserClicked(6)} state={gameState[6]}/>
-                <SquareComponent className="b-right" onClick={() => onUserClicked(7)} state={gameState[7]}/>
-                <SquareComponent onClick={() => onUserClicked(8)} state={gameState[8]}/>
+            <div className='all_squre'>
+                <div className="row jc-center">
+                    <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(0)} state={gameState[0]}/>
+                    <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(1)} state={gameState[1]}/>
+                    <SquareComponent className="b-bottom" onClick={() => onUserClicked(2)} state={gameState[2]}/>
+                </div>
+                <div className="row jc-center">
+                    <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(3)} state={gameState[3]}/>
+                    <SquareComponent className="b-bottom-right" onClick={() => onUserClicked(4)} state={gameState[4]}/>
+                    <SquareComponent className="b-bottom" onClick={() => onUserClicked(5)} state={gameState[5]}/>
+                </div>
+                <div className="row jc-center">
+                    <SquareComponent className="b-right" onClick={() => onUserClicked(6)} state={gameState[6]}/>
+                    <SquareComponent className="b-right" onClick={() => onUserClicked(7)} state={gameState[7]}/>
+                    <SquareComponent onClick={() => onUserClicked(8)} state={gameState[8]}/>
+                </div>
             </div>
             <button className="clear-button" onClick={clearGame}>Restart Game</button>
         </div>
